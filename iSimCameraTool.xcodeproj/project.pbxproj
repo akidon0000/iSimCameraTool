@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		156EEB9E2CB2AD9200EA9907 /* Akidon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156EEB9D2CB2AD9200EA9907 /* Akidon.swift */; };
+		1552341D2CB3F145005720D4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1552341C2CB3F145005720D4 /* main.swift */; };
+		155234242CB3F532005720D4 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155234232CB3F532005720D4 /* CameraManager.swift */; };
+		155234272CB3FCEE005720D4 /* CaptureError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155234262CB3FCEE005720D4 /* CaptureError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		156EEB982CB2AD9200EA9907 /* CopyFiles */ = {
+		155234172CB3F145005720D4 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,13 +25,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		156EEB9A2CB2AD9200EA9907 /* sim-cam-control-macos */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "sim-cam-control-macos"; sourceTree = BUILT_PRODUCTS_DIR; };
-		156EEB9D2CB2AD9200EA9907 /* Akidon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Akidon.swift; sourceTree = "<group>"; };
-		156EEBA42CB2DE6B00EA9907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		155234192CB3F145005720D4 /* iSimCameraTool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = iSimCameraTool; sourceTree = BUILT_PRODUCTS_DIR; };
+		1552341C2CB3F145005720D4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		155234232CB3F532005720D4 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		155234262CB3FCEE005720D4 /* CaptureError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		156EEB972CB2AD9200EA9907 /* Frameworks */ = {
+		155234162CB3F145005720D4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,67 +42,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		156EEB912CB2AD9200EA9907 = {
+		155234102CB3F145005720D4 = {
 			isa = PBXGroup;
 			children = (
-				156EEB9C2CB2AD9200EA9907 /* sim-cam-control-macos */,
-				156EEB9B2CB2AD9200EA9907 /* Products */,
+				1552341B2CB3F145005720D4 /* Source */,
+				1552341A2CB3F145005720D4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		156EEB9B2CB2AD9200EA9907 /* Products */ = {
+		1552341A2CB3F145005720D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				156EEB9A2CB2AD9200EA9907 /* sim-cam-control-macos */,
+				155234192CB3F145005720D4 /* iSimCameraTool */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		156EEB9C2CB2AD9200EA9907 /* sim-cam-control-macos */ = {
+		1552341B2CB3F145005720D4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				156EEB9D2CB2AD9200EA9907 /* Akidon.swift */,
-				156EEBA42CB2DE6B00EA9907 /* Info.plist */,
+				155234252CB3FCD7005720D4 /* Entity */,
+				1552341C2CB3F145005720D4 /* main.swift */,
+				155234232CB3F532005720D4 /* CameraManager.swift */,
 			);
-			path = "sim-cam-control-macos";
+			path = Source;
+			sourceTree = "<group>";
+		};
+		155234252CB3FCD7005720D4 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				155234262CB3FCEE005720D4 /* CaptureError.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		156EEB992CB2AD9200EA9907 /* sim-cam-control-macos */ = {
+		155234182CB3F145005720D4 /* iSimCameraTool */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 156EEBA12CB2AD9200EA9907 /* Build configuration list for PBXNativeTarget "sim-cam-control-macos" */;
+			buildConfigurationList = 155234202CB3F145005720D4 /* Build configuration list for PBXNativeTarget "iSimCameraTool" */;
 			buildPhases = (
-				156EEB962CB2AD9200EA9907 /* Sources */,
-				156EEB972CB2AD9200EA9907 /* Frameworks */,
-				156EEB982CB2AD9200EA9907 /* CopyFiles */,
+				155234152CB3F145005720D4 /* Sources */,
+				155234162CB3F145005720D4 /* Frameworks */,
+				155234172CB3F145005720D4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "sim-cam-control-macos";
-			productName = "sim-cam-control-macos";
-			productReference = 156EEB9A2CB2AD9200EA9907 /* sim-cam-control-macos */;
+			name = iSimCameraTool;
+			productName = iSimCameraTool;
+			productReference = 155234192CB3F145005720D4 /* iSimCameraTool */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		156EEB922CB2AD9200EA9907 /* Project object */ = {
+		155234112CB3F145005720D4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
-					156EEB992CB2AD9200EA9907 = {
+					155234182CB3F145005720D4 = {
 						CreatedOnToolsVersion = 15.1;
 					};
 				};
 			};
-			buildConfigurationList = 156EEB952CB2AD9200EA9907 /* Build configuration list for PBXProject "sim-cam-control-macos" */;
+			buildConfigurationList = 155234142CB3F145005720D4 /* Build configuration list for PBXProject "iSimCameraTool" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -107,29 +119,31 @@
 				en,
 				Base,
 			);
-			mainGroup = 156EEB912CB2AD9200EA9907;
-			productRefGroup = 156EEB9B2CB2AD9200EA9907 /* Products */;
+			mainGroup = 155234102CB3F145005720D4;
+			productRefGroup = 1552341A2CB3F145005720D4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				156EEB992CB2AD9200EA9907 /* sim-cam-control-macos */,
+				155234182CB3F145005720D4 /* iSimCameraTool */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		156EEB962CB2AD9200EA9907 /* Sources */ = {
+		155234152CB3F145005720D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				156EEB9E2CB2AD9200EA9907 /* Akidon.swift in Sources */,
+				155234242CB3F532005720D4 /* CameraManager.swift in Sources */,
+				1552341D2CB3F145005720D4 /* main.swift in Sources */,
+				155234272CB3FCEE005720D4 /* CaptureError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		156EEB9F2CB2AD9200EA9907 /* Debug */ = {
+		1552341E2CB3F145005720D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -192,7 +206,7 @@
 			};
 			name = Debug;
 		};
-		156EEBA02CB2AD9200EA9907 /* Release */ = {
+		1552341F2CB3F145005720D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -247,21 +261,19 @@
 			};
 			name = Release;
 		};
-		156EEBA22CB2AD9200EA9907 /* Debug */ = {
+		155234212CB3F145005720D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/sim-cam-control-macos/Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		156EEBA32CB2AD9200EA9907 /* Release */ = {
+		155234222CB3F145005720D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/sim-cam-control-macos/Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -270,25 +282,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		156EEB952CB2AD9200EA9907 /* Build configuration list for PBXProject "sim-cam-control-macos" */ = {
+		155234142CB3F145005720D4 /* Build configuration list for PBXProject "iSimCameraTool" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				156EEB9F2CB2AD9200EA9907 /* Debug */,
-				156EEBA02CB2AD9200EA9907 /* Release */,
+				1552341E2CB3F145005720D4 /* Debug */,
+				1552341F2CB3F145005720D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		156EEBA12CB2AD9200EA9907 /* Build configuration list for PBXNativeTarget "sim-cam-control-macos" */ = {
+		155234202CB3F145005720D4 /* Build configuration list for PBXNativeTarget "iSimCameraTool" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				156EEBA22CB2AD9200EA9907 /* Debug */,
-				156EEBA32CB2AD9200EA9907 /* Release */,
+				155234212CB3F145005720D4 /* Debug */,
+				155234222CB3F145005720D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 156EEB922CB2AD9200EA9907 /* Project object */;
+	rootObject = 155234112CB3F145005720D4 /* Project object */;
 }
