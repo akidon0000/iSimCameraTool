@@ -5,13 +5,13 @@
 //  Created by akidon0000 on 2024/10/07.
 //
 
-import AVFoundation
 import AppKit
+import AVFoundation
 
 final class CameraCapture: NSObject {
     private let captureSession = AVCaptureSession()
-    private var captureOutput = AVCaptureVideoDataOutput()
     private let captureQueue = DispatchQueue(label: "camera.capture.queue")
+    private let filePath = "/tmp/iSimCameraTool_captured_photo.jpg"
     
     override init() {
         super.init()
@@ -30,30 +30,31 @@ final class CameraCapture: NSObject {
         captureSession.sessionPreset = .low
         
         guard let camera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else {
-            print("Error: No camera available.")
+            print("エラー: カメラが利用できません。")
             return
         }
         
         do {
             let input = try AVCaptureDeviceInput(device: camera)
-            if captureSession.canAddInput(input) {
+            let output = AVCaptureVideoDataOutput()
+            output.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
+            output.setSampleBufferDelegate(self, queue: captureQueue)
+            
+            if captureSession.canAddInput(input) && captureSession.canAddOutput(output) {
                 captureSession.addInput(input)
+                captureSession.addOutput(output)
+            } else {
+                print("エラー: キャプチャセッションに入力または出力を追加できませんでした。")
             }
-        } catch {
-            print("Error: Unable to initialize camera input: \(error)")
+        } catch let error {
+            print("エラー: AVCaptureDeviceInputの作成に失敗しました。詳細: \(error.localizedDescription)")
             return
-        }
-        
-        captureOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
-        captureOutput.setSampleBufferDelegate(self, queue: captureQueue)
-        
-        if captureSession.canAddOutput(captureOutput) {
-            captureSession.addOutput(captureOutput)
         }
     }
 }
 
 extension CameraCapture: AVCaptureVideoDataOutputSampleBufferDelegate {
+    
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             return
@@ -62,22 +63,11 @@ extension CameraCapture: AVCaptureVideoDataOutputSampleBufferDelegate {
         let ciImage = CIImage(cvPixelBuffer: imageBuffer)
         let context = CIContext()
         
-        guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent) else {
+        guard let jpegData = context.jpegRepresentation(of: ciImage, colorSpace: CGColorSpaceCreateDeviceRGB(), options: [:]) else {
             return
         }
-        
-        let nsImage = NSImage(cgImage: cgImage, size: .zero)
-        saveImage(nsImage)
-    }
-    
-    private func saveImage(_ image: NSImage) {
         let fileManager = FileManager.default
-        guard let tiffData = image.tiffRepresentation,
-              let bitmap = NSBitmapImageRep(data: tiffData),
-              let jpegData = bitmap.representation(using: .jpeg, properties: [:]) else {
-            return
-        }
-        let filePath = "/tmp/iSimCameraTool_captured_photo.jpg"
         fileManager.createFile(atPath: filePath, contents: jpegData, attributes: nil)
     }
+    
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 func main() {
-    let captureTimeout: TimeInterval = 300 // 5分
+    let captureTimeout: TimeInterval = 300 // 5分で終了
     
     let cameraManager = CameraCapture()
     cameraManager.startCapturing()
